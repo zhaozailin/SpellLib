@@ -156,9 +156,20 @@
 			 _$ShadowCLib[ p_word ] = _resultStr;
 			 return _resultStr;
 		 }
-	}
-	//将拼音库对象注册到window中
-	window.Spell = Spell;
+	};
+
+    // 支持AMD
+    if ( typeof define === "function" && define.amd ) {
+        define(function() {
+            return Spell;
+        });
+    }
+
+    //将拼音库对象注册到window中
+    else {
+        window.Spell = Spell;
+    }
+
 })( window );
 
 
